@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".PreviewFragment">
+
+    <include layout="@layout/fragment_preview_content"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"/>
+
+    <EditText
+        android:gravity="center"
+        android:id="@+id/tv_input_city"
+        android:layout_marginTop="40dp"
+        android:layout_marginStart="@dimen/default_margin_for_ed_bt"
+        android:layout_marginEnd="@dimen/default_margin_for_ed_bt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/enter_your_city"
+        android:layout_gravity="center"/>
+
+</LinearLayout>
