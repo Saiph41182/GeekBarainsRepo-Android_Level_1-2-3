@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Проект приложения погоды</string>
+
+    <string name="enter_your_city">Введите свой город</string>
+    <string name="show_weather">Показать погоду</string>
+    <string name="city">Выбранный вами город</string>
+    <string name="temperature">Температура</string>
+    <string name="wind_speed">Скорость ветра</string>
+    <string name="pressure">Давление</string>
+    <string name="humidity">Влажность</string>
+    <string name="settings">Настройки</string>
+    <string name="weather_information">информация о погоде</string>
+    <string name="choose_city">Выберете город</string>
+</resources>
