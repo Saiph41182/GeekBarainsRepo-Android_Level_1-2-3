@@ -58,10 +58,10 @@ public class WeatherFragment extends Fragment {
 
     @Subscribe(sticky = true, threadMode = ThreadMode.MAIN)
     public void handleWeatherInfo(WeatherRequest weatherInfo){
-        cityTitle.append(": " + weatherInfo.getName());
-        temperature.append(": " + weatherInfo.getMain().getTemp());
-        windSpeed.append(": " + weatherInfo.getWind().getSpeed());
-        pressure.append(": " + weatherInfo.getMain().getPressure());
-        humidity.append(": " + weatherInfo.getMain().getHumidity());
+        cityTitle.setText(String.format("%s: %s", getString(R.string.city), weatherInfo.getName()));
+        temperature.setText(String.format("%s: %s", getString(R.string.temperature), weatherInfo.getMain().getTemp()));
+        windSpeed.setText(String.format("%s: %s", getString(R.string.wind_speed), weatherInfo.getWind().getSpeed()));
+        pressure.setText(String.format("%s: %d", getString(R.string.pressure), weatherInfo.getMain().getPressure()));
+        humidity.setText(String.format("%s: %d", getString(R.string.humidity), weatherInfo.getMain().getHumidity()));
     }
 }
