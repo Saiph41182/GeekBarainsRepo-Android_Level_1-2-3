@@ -2,7 +2,6 @@ package com.example.weatherproject;
 
 import android.app.PendingIntent;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
@@ -16,16 +15,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.example.weatherproject.services.DataLoader;
+import com.example.weatherproject.internet_conection.DataLoader;
 import com.example.weatherproject.settings.SettingsActivity;
-import com.example.weatherproject.settings.subSettings.SettingsParams;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 
 public class MainActivity extends AppCompatActivity {
-    public static final String PINTENT = "PendingIntent";
-    public static final String REQUEST = "request";
-    private static final String TAG = "MainActivity";
 
     private FloatingActionButton fab;
     private Toolbar toolbar;
@@ -73,25 +66,25 @@ public class MainActivity extends AppCompatActivity {
         fragmentTransaction.commit();
     }
     public void runService(){
-        PendingIntent pi = createPendingResult(1, new Intent(),0);
+        Log.d("Internet", "runService: starting service ");
         Intent intent = new Intent(this, DataLoader.class);
-        intent.putExtra(REQUEST,"www.chtototam.ru");
-        intent.putExtra(PINTENT,pi);
         startService(intent);
-
+    }
+    private void runFragment(){
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        if (fragmentManager.findFragmentById(new WeatherFragment().getId()) == null) {
+            fragmentManager.beginTransaction()
+                    .replace(R.id.preview, new WeatherFragment(), WeatherFragment.NAME)
+                    .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                    .addToBackStack(WeatherFragment.NAME).commit();
+        }
     }
 
     private View.OnClickListener fabOnClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            FragmentManager fragmentManager = getSupportFragmentManager();
-            if (fragmentManager.findFragmentById(new WeatherFragment().getId()) == null) {
-                fragmentManager.beginTransaction()
-                        .replace(R.id.preview, new WeatherFragment(), WeatherFragment.NAME)
-                        .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-                        .addToBackStack(WeatherFragment.NAME).commit();
-            }
-            //runService();
+            runFragment();
+            runService();
         }
     };
 }
