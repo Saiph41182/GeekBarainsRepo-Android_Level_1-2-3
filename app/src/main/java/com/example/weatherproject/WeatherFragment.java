@@ -1,7 +1,9 @@
 package com.example.weatherproject;
 
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -35,7 +37,7 @@ public class WeatherFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_weather, container, false);
         initUI(view);
@@ -56,6 +58,7 @@ public class WeatherFragment extends Fragment {
         humidity = view.findViewById(R.id.humidity);
     }
 
+    @SuppressLint("DefaultLocale")
     @Subscribe(sticky = true, threadMode = ThreadMode.MAIN)
     public void handleWeatherInfo(WeatherRequest weatherInfo){
         cityTitle.setText(String.format("%s: %s", getString(R.string.city), weatherInfo.getName()));
