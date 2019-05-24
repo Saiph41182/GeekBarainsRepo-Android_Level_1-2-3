@@ -1,4 +1,4 @@
-package com.example.weatherproject.internet_conection;
+package com.example.weatherproject.internetСonection;
 
 import android.app.IntentService;
 import android.content.Intent;

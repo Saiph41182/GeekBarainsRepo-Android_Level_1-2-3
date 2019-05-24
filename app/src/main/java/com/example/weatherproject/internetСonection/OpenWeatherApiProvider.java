@@ -1,7 +1,4 @@
-package com.example.weatherproject.internet_conection;
-
-import android.app.Application;
-import android.content.Context;
+package com.example.weatherproject.internetСonection;
 
 import com.example.weatherproject.models.weatherPOJO.WeatherRequest;
 
