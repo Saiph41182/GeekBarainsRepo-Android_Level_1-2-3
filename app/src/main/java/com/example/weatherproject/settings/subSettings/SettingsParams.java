@@ -31,7 +31,9 @@ public class SettingsParams {
     }
 
     public String getCity() {
-        return city;
+        String temp = city;
+        city = null;
+        return temp;
     }
 
     public void setCity(String city) {
