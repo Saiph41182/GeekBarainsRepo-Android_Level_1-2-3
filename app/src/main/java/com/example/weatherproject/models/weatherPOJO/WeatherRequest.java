@@ -136,4 +136,11 @@ public class WeatherRequest {
     public void setCod(int cod) {
         this.cod = cod;
     }
+
+    @Override
+    public String toString() {
+        return "WeatherRequest{" +
+                "name='" + name + '\'' +
+                '}';
+    }
 }
