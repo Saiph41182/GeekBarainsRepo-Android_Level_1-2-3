@@ -7,14 +7,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.weatherproject.DataBase.DBHelper;
 import com.example.weatherproject.models.CityItem;
 import com.example.weatherproject.R;
 
 import java.util.List;
 
-public class CityAdapter extends BaseAdapter<CityItem, CityAdapter.CityViewHolder> {
+public class CityAdapter extends BaseAdapter<DBHelper.DBItem, CityAdapter.CityViewHolder> {
 
-    public CityAdapter(List<CityItem> displayData) {
+    public CityAdapter(List<DBHelper.DBItem> displayData) {
         super(displayData);
     }
 
@@ -43,8 +44,9 @@ public class CityAdapter extends BaseAdapter<CityItem, CityAdapter.CityViewHolde
         }
 
         public void bind(int position) {
-            cityName.setText(displayData.get(position).getCity());
-            countryName.setText(displayData.get(position).getCountry());
+            cityName.setText(displayData.get(position).getCityName());
+            String coordinate = String.format("Lad: %s; Lon: %s",displayData.get(position).getLat(),displayData.get(position).getLat());
+            countryName.setText(coordinate);
         }
         private View.OnClickListener clickListener = new View.OnClickListener() {
             @Override
