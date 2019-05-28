@@ -9,7 +9,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
+import com.example.weatherproject.DataBase.DBHelper;
 import com.example.weatherproject.adapters.BaseAdapter;
 import com.example.weatherproject.adapters.CityAdapter;
 import com.example.weatherproject.models.CityItem;
@@ -52,34 +54,14 @@ public class CityChooserFragment extends BaseFragment {
         rvCityList.setAdapter(cityAdapter);
     }
 
-    private List initList(){
-        ArrayList<CityItem> temp = new ArrayList<>();
-        temp.add(new CityItem("Омск","Россия"));
-        temp.add(new CityItem("Могилев","Беларусь"));
-        temp.add(new CityItem("New York","USA"));
-        temp.add(new CityItem("London","England"));
-        temp.add(new CityItem("Минск","Беларусь"));
-        temp.add(new CityItem("Омск","Россия"));
-        temp.add(new CityItem("Могилев","Беларусь"));
-        temp.add(new CityItem("New York","USA"));
-        temp.add(new CityItem("London","England"));
-        temp.add(new CityItem("Минск","Беларусь"));
-        temp.add(new CityItem("Омск","Россия"));
-        temp.add(new CityItem("Могилев","Беларусь"));
-        temp.add(new CityItem("New York","USA"));
-        temp.add(new CityItem("London","England"));
-        temp.add(new CityItem("Минск","Беларусь"));
-        temp.add(new CityItem("Омск","Россия"));
-        temp.add(new CityItem("Могилев","Беларусь"));
-        temp.add(new CityItem("New York","USA"));
-        temp.add(new CityItem("London","England"));
-        temp.add(new CityItem("Минск","Беларусь"));
-        return temp;
+    private List<DBHelper.DBItem> initList(){
+        return  DBHelper.getInstance().getAll();
     }
     private BaseAdapter.OnItemClickListener itemClickListener = new BaseAdapter.OnItemClickListener() {
         @Override
         public void onItemClick(View view, int position) {
-
+            String city = ((TextView)view.findViewById(R.id.city_name)).getText().toString();
+            SettingsParams.getSettingsParams().setCity(city);
         }
     };
     public void onSaveInstanceState(@NonNull Bundle outState) {
