@@ -4,7 +4,7 @@
     <string name="app_name">WeatherProject</string>
     <string name="enter_your_city">Enter your city</string>
     <string name="show_weather">Show weather</string>
-    <string name="city">Your chosen city</string>
+    <string name="city">Your city</string>
     <string name="temperature">Temperature</string>
     <string name="wind_speed">Wind speed</string>
     <string name="pressure">Pressure</string>

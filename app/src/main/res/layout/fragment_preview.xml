@@ -17,9 +17,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
+        android:ems="10"
+        android:inputType="textPersonName"
         android:layout_marginStart="@dimen/default_margin_for_ed_bt"
         android:layout_marginEnd="@dimen/default_margin_for_ed_bt"
         android:layout_marginBottom="150dp"
-        android:hint="@string/enter_your_city" />
+        android:hint="@string/enter_your_city"
+        android:importantForAutofill="no"
+        tools:targetApi="o"  />
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        android:src="@drawable/ic_wb_sunny_black_24dp" />
 
 </FrameLayout>

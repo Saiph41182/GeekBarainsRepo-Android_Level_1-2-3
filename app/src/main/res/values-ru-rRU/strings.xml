@@ -4,7 +4,7 @@
 
     <string name="enter_your_city">Введите свой город</string>
     <string name="show_weather">Показать погоду</string>
-    <string name="city">Выбранный вами город</string>
+    <string name="city">Ваш город город</string>
     <string name="temperature">Температура</string>
     <string name="wind_speed">Скорость ветра</string>
     <string name="pressure">Давление</string>
